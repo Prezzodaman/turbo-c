@@ -8,10 +8,14 @@ struct sbgl_gfx{
 	byte width;
 	byte height;
 	byte transparent;
-	word x;
-	word y;
+	byte tint;
+	byte opaque;
+	byte erase;
+	byte mask;
 };
 struct sbgl_gfx sbgl_load_gfx(char *filename);
-void sbgl_draw_gfx(sbgl_gfx gfx);
+void sbgl_draw_gfx(sbgl_gfx gfx,int x,int y);
+void sbgl_draw_gfx_rotate(sbgl_gfx gfx,int x,int y,byte angle);
+void sbgl_draw_gfx_scale(sbgl_gfx gfx,int x,int y,float w,float h,byte centre);
 void sbgl_wait_retrace();
 void sbgl_init();
